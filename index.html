@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project 2</title>
+</head>
+<body>
+    <form action="" style="display: flex; align-items: center; gap: 5px;">
+        <label for="comments">Your Comments:</label>
+        <textarea name="comments" id="input" rows="4" cols="50" placeholder="200 characters maximum allowed"></textarea>
+    </form>
+    <h3 id="display">Your entered characters: 0 (Remaining: 200)</h3>
+
+    <script>
+        const input = document.getElementById('input');
+        const display = document.getElementById('display');
+
+        input.addEventListener('input', () => {
+            const text = input.value;
+            if (text.length > 200) {
+                input.value = text.slice(0, 200); // Limit to 200 characters
+                alert('You have reached the maximum character limit of 200.');
+            }
+            // console.log(200-text.length);
+            display.textContent = `Your entered characters: ${input.value.length} (Remaining: ${200 - input.value.length})`;
+        });
+    </script>
+</body>
+</html>
